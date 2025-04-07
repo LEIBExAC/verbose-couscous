@@ -18,6 +18,7 @@ fun main() {
 
     arithmetic()
     comparison()
+    logicalOperators()
 }
 
 /** Data Types - Primitive */
@@ -26,7 +27,7 @@ fun main() {
  * 2. Float
  * 3. Double
  * 4. Boolean
- * 5. Strings (Seq. of chars)
+ * 5. Strings (Seq. of chars.)
  * There's one more which will be discussed later.
  */
 
@@ -50,6 +51,8 @@ fun comparison() {
     print("Enter a number :")
     val x = readln().toIntOrNull()
     val y = 15
+
+    val waifu = (x ?: 0) >= y
     if ((x ?: 0) > y) {
         println("$x is greater than $y")
     } else {
@@ -61,6 +64,8 @@ fun comparison() {
 /**
  * 1. && - Logical AND
  * 2. || - Logical OR
+ *
+ *   --> AND has more priority over the OR operator.
  */
 fun logicalOperators() {
     val x = readlnOrNull()?.toIntOrNull() ?: 0
@@ -71,6 +76,14 @@ fun logicalOperators() {
         println("x is not greater than y or greater than 20")
     }
 
-    val z = 10
-    val a = readlnOrNull()?.toIntOrNull() ?: 0
+    val z = 12
+    val a = 14
+    val areBothEvenAndBothEqualsTo25 =
+        z % 2 == 0 || a % 2 == 0 && z + a == 25 // Return type is Boolean(Hover on variable name to see.)
+    println("Are both even and both equals to 25 : $areBothEvenAndBothEqualsTo25")
+    //  The output will be 'true' because first AND(a % 2 == 0 && z + a == 25) part will be executed and checked and then
+    //  the next OR(z % 2 == 0 || prevOperationResult). 'prevOperationResult' means highest priority operator result.
+    println(3 + 3 * 3)
+    //  Same here, output is '12' because *,/ have higher precedence with +,- .
+    //  For more precise result use parenthesis. Example ((3 + 3) * 3) will give 18.
 }
