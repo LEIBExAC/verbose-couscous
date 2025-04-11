@@ -19,6 +19,7 @@ fun main() {
     arithmetic()
     comparison()
     logicalOperators()
+    userInputs()
 }
 
 /** Data Types - Primitive */
@@ -86,4 +87,12 @@ fun logicalOperators() {
     println(3 + 3 * 3)
     //  Same here, output is '12' because *,/ have higher precedence with +,- .
     //  For more precise result use parenthesis. Example ((3 + 3) * 3) will give 18.
+}
+
+/** Taking and handling user inputs */
+fun userInputs() {
+    print("Enter a number: ")
+    val input = readln()
+    val intInput = input.toInt()
+    println("Input is $input")
 }
